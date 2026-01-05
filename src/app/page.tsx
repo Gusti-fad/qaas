@@ -30,10 +30,10 @@ export default function LandingPage() {
               A unified platform connecting companies with vetted freelance QA professionals for bug hunting,
               project-based testing, and dedicated QA roles.
             </p>
-            {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
                 Find QA Talent
-              </Button>
+              </Button> */}
               <Button
                 size="lg"
                 variant="outline"
@@ -41,7 +41,7 @@ export default function LandingPage() {
               >
                 Join as a QA Freelancer
               </Button>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -341,10 +341,10 @@ export default function LandingPage() {
           <h2 className="mb-6 text-balance font-bold text-3xl text-[#f4e5b8] sm:text-4xl md:text-5xl">
             Join our QA marketplace and start collaborating with trusted QA professionals today.
           </h2>
-          {/* <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
               Post a Project
-            </Button>
+            </Button> */}
             <Button
               size="lg"
               variant="outline"
@@ -352,7 +352,7 @@ export default function LandingPage() {
             >
               Become a QA Freelancer
             </Button>
-          </div> */}
+          </div>
         </div>
       </section>
 
