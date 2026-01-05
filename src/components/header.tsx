@@ -3,9 +3,16 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
+const sections = [
+  { id: "what-we-do", label: "About Us" },
+  { id: "services", label: "Services" },
+  { id: "why-choose", label: "Our Features" },
+]
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +28,42 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+useEffect(() => {
+  const visibleSections = new Set<string>()
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id
+
+        if (entry.isIntersecting) {
+          visibleSections.add(id)
+        } else {
+          visibleSections.delete(id)
+        }
+      })
+
+      if (visibleSections.size === 0) {
+        setActiveSection(null)
+      } else {
+        setActiveSection([...visibleSections].at(-1)!)
+      }
+    },
+    {
+      rootMargin: "-40% 0px -50% 0px",
+      threshold: 0,
+    }
+  )
+
+  sections.forEach((section) => {
+    const el = document.getElementById(section.id)
+    if (el) observer.observe(el)
+  })
+
+  return () => observer.disconnect()
+}, [])
+
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -28,6 +71,55 @@ export function Header() {
     }
     setIsOpen(false)
   }
+
+const navClass = (id: string) =>
+  `
+  relative text-gray-300 transition-colors duration-300
+  hover:text-[#d4af37] cursor-pointer
+
+  after:absolute
+  after:left-0
+  after:-bottom-1
+  after:h-[2px]
+  after:w-full
+  after:bg-[#d4af37]
+  after:scale-x-0
+  after:origin-left
+  after:transition-transform
+  after:duration-300
+  after:ease-out
+
+  ${
+    activeSection === id
+      ? "text-[#d4af37] after:scale-x-100"
+      : "hover:after:scale-x-100"
+  }
+  `
+
+
+const mobileNavClass = (id: string) =>
+  `
+  relative text-left transition-colors duration-300
+  hover:text-[#f4e5b8]
+
+  after:absolute
+  after:left-0
+  after:-bottom-1
+  after:h-[2px]
+  after:w-6
+  after:bg-[#d4af37]
+  after:scale-x-0
+  after:origin-left
+  after:transition-transform
+  after:duration-300
+
+  ${
+    activeSection === id
+      ? "text-[#d4af37] after:scale-x-100"
+      : ""
+  }
+  `
+
 
   return (
     <header
@@ -53,15 +145,15 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection("what-we-do")} className="nav-item">
-              About Us
-            </button>
-            <button onClick={() => scrollToSection("services")} className="nav-item">
-              Services
-            </button>
-            <button onClick={() => scrollToSection("why-choose")} className="nav-item">
-              Our Features
-            </button>
+            {sections.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={navClass(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -79,15 +171,15 @@ export function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <nav className="md:hidden mt-6 space-y-5 pb-4 flex flex-col">
-            <button onClick={() => scrollToSection("what-we-do")} className="mobile-nav-item">
-              About Us
-            </button>
-            <button onClick={() => scrollToSection("services")} className="mobile-nav-item">
-              Services
-            </button>
-            <button onClick={() => scrollToSection("why-choose")} className="mobile-nav-item">
-              Our Features
-            </button>
+            {sections.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={mobileNavClass(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
         )}
       </div>

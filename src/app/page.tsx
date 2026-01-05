@@ -37,7 +37,7 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a1628] font-semibold text-lg px-8 bg-transparent"
+                className="cursor-pointer border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a1628] font-semibold text-lg px-8 bg-transparent"
               >
                 Join as a QA Freelancer
               </Button>
@@ -66,7 +66,7 @@ export default function LandingPage() {
       <section className="border-y border-[#2a3952] bg-[#0a1628] py-20">
         <div className="container mx-auto px-4">
           <h2 className="mb-16 text-center font-bold text-3xl text-[#d4af37] sm:text-4xl md:text-5xl">How It Works</h2>
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+          <div className="mx-auto flex flex-col md:flex-row  justify-center max-w-6xl gap-12">
             {/* For Companies */}
             <div>
               <h3 className="mb-8 font-semibold text-2xl text-[#f4e5b8] sm:text-3xl">For Companies</h3>
@@ -348,7 +348,7 @@ export default function LandingPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a1628] font-semibold text-lg px-8 bg-transparent"
+              className="cursor-pointer border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a1628] font-semibold text-lg px-8 bg-transparent"
             >
               Become a QA Freelancer
             </Button>
