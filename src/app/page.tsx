@@ -30,7 +30,7 @@ export default function LandingPage() {
               A unified platform connecting companies with vetted freelance QA professionals for bug hunting,
               project-based testing, and dedicated QA roles.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
                 Find QA Talent
               </Button>
@@ -41,7 +41,7 @@ export default function LandingPage() {
               >
                 Join as a QA Freelancer
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -58,6 +58,57 @@ export default function LandingPage() {
             Whether you are launching a new product, scaling an existing system, or improving software reliability, our
             platform helps you ensure quality at every stage.
           </p>
+        </div>
+      </section>
+
+
+      {/* How It Works Section */}
+      <section className="border-y border-[#2a3952] bg-[#0a1628] py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-16 text-center font-bold text-3xl text-[#d4af37] sm:text-4xl md:text-5xl">How It Works</h2>
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+            {/* For Companies */}
+            <div>
+              <h3 className="mb-8 font-semibold text-2xl text-[#f4e5b8] sm:text-3xl">For Companies</h3>
+              <div className="space-y-6">
+                {[
+                  "Post a QA project or testing mission",
+                  "Define scope, tools, and timeline",
+                  "Review tester profiles or receive applications",
+                  "Track progress and approve deliverables",
+                  "Release payment securely",
+                ].map((step, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#d4af37] font-bold text-[#0a1628] text-lg">
+                      {index + 1}
+                    </div>
+                    <p className="pt-2 text-[#f4e5b8] text-lg leading-relaxed">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* For QA Freelancers */}
+            <div>
+              <h3 className="mb-8 font-semibold text-2xl text-[#f4e5b8] sm:text-3xl">For QA Freelancers</h3>
+              <div className="space-y-6">
+                {[
+                  "Create a tester profile and verify skills",
+                  "Browse available testing projects",
+                  "Apply or accept invitations",
+                  "Submit structured bug reports or test results",
+                  "Get paid for approved work",
+                ].map((step, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#d4af37] font-bold text-[#0a1628] text-lg">
+                      {index + 1}
+                    </div>
+                    <p className="pt-2 text-[#f4e5b8] text-lg leading-relaxed">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -141,57 +192,6 @@ export default function LandingPage() {
           </Card>
         </div>
       </section>
-
-      {/* How It Works Section */}
-      <section className="border-y border-[#2a3952] bg-[#0a1628] py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-16 text-center font-bold text-3xl text-[#d4af37] sm:text-4xl md:text-5xl">How It Works</h2>
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
-            {/* For Companies */}
-            <div>
-              <h3 className="mb-8 font-semibold text-2xl text-[#f4e5b8] sm:text-3xl">For Companies</h3>
-              <div className="space-y-6">
-                {[
-                  "Post a QA project or testing mission",
-                  "Define scope, tools, and timeline",
-                  "Review tester profiles or receive applications",
-                  "Track progress and approve deliverables",
-                  "Release payment securely",
-                ].map((step, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#d4af37] font-bold text-[#0a1628] text-lg">
-                      {index + 1}
-                    </div>
-                    <p className="pt-2 text-[#f4e5b8] text-lg leading-relaxed">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* For QA Freelancers */}
-            <div>
-              <h3 className="mb-8 font-semibold text-2xl text-[#f4e5b8] sm:text-3xl">For QA Freelancers</h3>
-              <div className="space-y-6">
-                {[
-                  "Create a tester profile and verify skills",
-                  "Browse available testing projects",
-                  "Apply or accept invitations",
-                  "Submit structured bug reports or test results",
-                  "Get paid for approved work",
-                ].map((step, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#d4af37] font-bold text-[#0a1628] text-lg">
-                      {index + 1}
-                    </div>
-                    <p className="pt-2 text-[#f4e5b8] text-lg leading-relaxed">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* QA Freelance Workflow */}
       <section className="container mx-auto px-4 py-20">
         <div className="mx-auto max-w-5xl">
@@ -341,7 +341,7 @@ export default function LandingPage() {
           <h2 className="mb-6 text-balance font-bold text-3xl text-[#f4e5b8] sm:text-4xl md:text-5xl">
             Join our QA marketplace and start collaborating with trusted QA professionals today.
           </h2>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="bg-[#d4af37] text-[#0a1628] hover:bg-[#f4e5b8] font-semibold text-lg px-8">
               Post a Project
             </Button>
@@ -352,7 +352,7 @@ export default function LandingPage() {
             >
               Become a QA Freelancer
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 

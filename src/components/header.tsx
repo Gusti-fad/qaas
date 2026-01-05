@@ -78,7 +78,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="md:hidden mt-4 space-y-3 pb-4">
+          <nav className="md:hidden mt-6 space-y-5 pb-4 flex flex-col">
             <button onClick={() => scrollToSection("what-we-do")} className="mobile-nav-item">
               About Us
             </button>
