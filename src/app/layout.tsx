@@ -11,23 +11,6 @@ export const metadata: Metadata = {
   title: "QA Marketplace - Freelance Quality Assurance Platform",
   description:
     "A unified platform connecting companies with vetted freelance QA professionals for bug hunting, project-based testing, and dedicated QA roles.",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
 }
 
 export default function RootLayout({
